@@ -1,0 +1,348 @@
+/**
+ * Task: implement a custom hashmap by implementing the CustomMap class below.  And please implement unit tests
+ * for each method.  Implement without any additional imports.
+ *
+ * Version 2018.03.05
+ */
+
+import java.util.Arrays;
+
+class CustomMap<K, V> {
+  
+    MapNode head = null;
+  MapNode node = null;
+    // return the value associated with this key, or null if not found
+    public V get(K key) {
+        return null;
+    }
+
+    // store the value, i.e, insert if it's a new key or update if the key exists
+    public void put(K key, V value) {
+      if(head==null){
+        MapNode head = new MapNode(key,value);
+        node = head;        
+        
+      }else{
+        
+        while(node !=null){
+          node = node.next;
+                    
+        }
+        node = new MapNode(key,value);
+        
+      }
+            
+    }
+
+    // return the total number of elements in this map
+    public int size() {
+      int i =0
+        if(head == null)
+        return 0;
+      else{
+        while(head.next!=null){
+          i++;
+        }
+        return i;
+      }
+    }
+
+    // return an array of all keys in this map
+    public Object[] keys() {
+      Object[] keyArra = new Object[size()]();
+      int i =0;
+      while(head.next!=null){
+        K key = head.key;
+        keyArra[i] = key;
+        i++:
+      }
+        return keyArra;
+    }
+
+    // remove the element if it exists; if key is found, return the value, else return null
+    public V remove(K key) {
+        return null;
+    }
+
+    // return true if the key exists in the map
+    public boolean containsKey(K key) {
+        return false;
+    }
+
+    // return true if the value exists in the map
+    public boolean containsValue(V value) {
+        return false;
+    }
+
+    /**
+     * the main runner; instantiates the custom map and runs tests...
+     */
+    public static void main(String[] args) {
+        CustomMap.runTests();
+    }
+
+    // if you use the groovy console or java repl, you can run with "CustomMap.runTests();"
+    public static void runTests() {
+        TestRunner tr = new TestRunner("CustomMap tests");
+
+        CustomMap<String, Object> map = new CustomMap<String, Object>();
+
+        tr.test(map != null);
+        tr.test(map.size() == 0);
+
+        String dfltKey = "mykey";
+        String dfltValue = "my new value";
+        map.put(dfltKey, dfltValue);
+        tr.test(map.size() == 1);
+
+        tr.test(map.get(dfltKey) == dfltValue);
+
+        System.out.println(tr);
+    }
+  
+  class MapNode {
+    K key = null;
+    V value = null;
+    MapNode next=null;
+    
+    MapNode(K key,V value){
+      this.key = key;
+      this.value = valuel
+      
+    }
+    
+  }
+
+    /**
+     * a tiny test runner to enable TDD..
+     */
+    static class TestRunner {
+        TestResults results;
+        public TestRunner(String name) {
+            results = new TestResults(name);
+        }
+
+        public void test(boolean b) {
+            results.tests++;
+            if (b) {
+                results.passed++ ;
+            } else {
+                results.failed++;
+            }
+        }
+
+        public String toString() {
+            return results.toString();
+        }
+
+        class TestResults {
+            String name;
+            int tests;
+            int passed;
+            int failed;
+            long totalMillis;
+            long startTime;
+
+            public TestResults(String name) {
+                this.name = name;
+                startTime = System.currentTimeMillis();
+            }
+
+            public String toString() {
+                return new StringBuilder()
+                    .append("Results for ").append(name)
+                    .append(": Tests: ").append(tests)
+                    .append(", Passed: ").append(passed)
+                    .append(", Failed: ").append(failed)
+                    .append(", Duration: ").append(totalMillis)
+                    .toString();
+            }
+        }
+    }
+}
+
+
+/**
+ * Task: implement a custom hashmap by implementing the CustomMap class below.  And please implement unit tests
+ * for each method.  Implement without any additional imports.
+ *
+ * Version 2018.03.05
+ */
+
+import java.util.Arrays;
+
+class CustomMap<K, V> {
+  
+    MapNode head = null;
+  MapNode node = null;
+    // return the value associated with this key, or null if not found
+    public V get(K key) {
+        return null;
+    }
+
+    // store the value, i.e, insert if it's a new key or update if the key exists
+    public void put(K key, V value) {
+      if(head==null){
+        MapNode head = new MapNode(key,value);
+        node = head;        
+        
+      }else{
+        
+        while(node !=null){
+          node = node.next;
+                    
+        }
+        node = new MapNode(key,value);
+        
+      }
+            
+    }
+
+    // return the total number of elements in this map
+    public int size() {
+      int i =0
+        if(head == null)
+        return 0;
+      else{
+        while(head.next!=null){
+          i++;
+        }
+        return i;
+      }
+    }
+
+    // return an array of all keys in this map
+    public Object[] keys() {
+      Object[] keyArra = new Object[size()]();
+      int i =0;
+      while(head.next!=null){
+        K key = head.key;
+        keyArra[i] = key;
+        i++:
+      }
+        return keyArra;
+    }
+
+    // remove the element if it exists; if key is found, return the value, else return null
+    public V remove(K key) {
+        return null;
+    }
+
+    // return true if the key exists in the map
+    public boolean containsKey(K key) {
+        return false;
+    }
+
+    // return true if the value exists in the map
+    public boolean containsValue(V value) {
+        return false;
+    }
+
+    /**
+     * the main runner; instantiates the custom map and runs tests...
+     */
+    public static void main(String[] args) {
+        CustomMap.runTests();
+    }
+
+    // if you use the groovy console or java repl, you can run with "CustomMap.runTests();"
+    public static void runTests() {
+        TestRunner tr = new TestRunner("CustomMap tests");
+
+        CustomMap<String, Object> map = new CustomMap<String, Object>();
+
+        tr.test(map != null);
+        tr.test(map.size() == 0);
+
+        String dfltKey = "mykey";
+        String dfltValue = "my new value";
+        map.put(dfltKey, dfltValue);
+        tr.test(map.size() == 1);
+
+        tr.test(map.get(dfltKey) == dfltValue);
+
+        System.out.println(tr);
+    }
+  
+  class MapNode {
+    K key = null;
+    V value = null;
+    MapNode next=null;
+    
+    MapNode(K key,V value){
+      this.key = key;
+      this.value = valuel
+      
+    }
+    
+  }
+
+    /**
+     * a tiny test runner to enable TDD..
+     */
+    static class TestRunner {
+        TestResults results;
+        public TestRunner(String name) {
+            results = new TestResults(name);
+        }
+
+        public void test(boolean b) {
+            results.tests++;
+            if (b) {
+                results.passed++ ;
+            } else {
+                results.failed++;
+            }
+        }
+
+        public String toString() {
+            return results.toString();
+        }
+
+        class TestResults {
+            String name;
+            int tests;
+            int passed;
+            int failed;
+            long totalMillis;
+            long startTime;
+
+            public TestResults(String name) {
+                this.name = name;
+                startTime = System.currentTimeMillis();
+            }
+
+            public String toString() {
+                return new StringBuilder()
+                    .append("Results for ").append(name)
+                    .append(": Tests: ").append(tests)
+                    .append(", Passed: ").append(passed)
+                    .append(", Failed: ").append(failed)
+                    .append(", Duration: ").append(totalMillis)
+                    .toString();
+            }
+        }
+    }
+}
+
+
+
+W
+ _  _   _/_  _  _   _/
+/_ /_//_//_'/_//_|/_/
+           /
+----------------------
+Data on this terminal can be erased at any time.
+Only the content in the editor is persistent.
+Got bugs or suggestions? Tell us: support@remoteinterview.io
+----------------------
+Results for CustomMap tests: Tests: 4, Passed: 2, Failed: 2, Duration: 0
+⦿ Preparing Instance
+⦿ Machine Ready
+We have disabled network access for free pads due to abuse.
+Please sign up for a plan for full network access.
+root@machine:~#
+▒ Compiling started by dpw
+Results for CustomMap tests: Tests: 4, Passed: 2, Failed: 2, Duration: 0
+^C
+root@machine:~#

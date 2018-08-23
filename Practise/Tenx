@@ -1,0 +1,105 @@
+import java.io.*;
+import java.util.*;
+
+/*
+ * To execute Java, please define "static void main" on a class
+ * named Solution.
+ *
+ * If you need more classes, simply define them inline.
+ 
+ 
+ Suppose you are creating an internal networking site for your company. You have two data sets to work with. The first data set is the employees at your company, and the second is all the pairs of employees who are virtually friends so far. It does not matter which employee's ID is in which column, the friendships are bidirectional.
+You want to know who’s friends with whom. You need to implement a function that, given the employees and friendships as parameters, returns this data in the form of an adjacency list representation. This should associate each employee ID to his/her friends on the site.
+.
+
+{
+  1: [2, 3, 6],
+  2: [1, 4],
+  3: [1],
+  4: [2],
+  6: [1],
+  9: []
+}
+
+ */
+
+class Solution {
+  
+  
+  
+  public  Map<String,Set<String>> printResult(String[] employeesInput,String[] friendshipsInput ){
+    
+    if(employeesInput ==null || employeesInput.length == 0){
+      return null;
+    }
+    
+    if(friendshipsInput ==null || friendshipsInput.length == 0){
+      return null; 
+    }
+    
+    Map<String,Set<String>> resultMap = new HashMap<>();
+    
+    for(int i=0;i<employeesInput.length;i++){
+      
+      String key = employeesInput[i].split(",")[0];
+      //System.out.println("Key : "+key);
+      Set<String> values = new HashSet<String>();            
+      resultMap.put(key,values);
+    }
+    
+    for(int i=0;i<friendshipsInput.length;i++){
+      String[] inputArray = friendshipsInput[i].split(",");
+      String val1 = inputArray[0];
+      String val2 = inputArray[1];
+      
+      //System.out.println("Value 1 : "+val1);
+      //System.out.println("Value 2 : "+val1);
+      
+      //System.out.println(resultMap);
+      Set<String> setValues1 =resultMap.get(val1); 
+      Set<String> setValues2 =resultMap.get(val2);
+      setValues1.add(val2);
+      setValues2.add(val1);
+      resultMap.put(val1,setValues1);
+      resultMap.put(val2,setValues2);
+    }
+    
+    return resultMap;
+   
+  }
+
+  public static void main(String[] args) {
+    String[] employeesInput = {
+  "1,Richard,Engineering",
+  "2,Erlich,HR",
+  "3,Monica,Business",
+  "4,Dinesh,Engineering",
+  "6,Carla,Engineering",
+  "9,Laurie,Directors"
+};
+String[] friendshipsInput = {
+  "1,2",
+  "1,3",
+  "1,6",
+  "2,4"
+};
+     Map<String,Set<String>> resultMap = new Solution().printResult(employeesInput,friendshipsInput);
+    
+    if(resultMap!=null){
+    
+     System.out.println(resultMap);
+    }else{
+       System.out.println("Invalid Input");
+    }
+    
+  }
+
+  
+}
+
+
+/* 
+Your previous Markdown content is preserved below:
+
+Welcome to the Interview!
+ */
